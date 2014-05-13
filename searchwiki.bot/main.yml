@@ -1,0 +1,17 @@
+#author: hitech
+#date: 2014-04-23
+---
+- hosts: all
+  gather_facts: False
+  vars:
+      url: "http://unix.stackexchange.com/search?tab=votes&q={{picklebot['variables']['query']|replace(' ','+')}}"
+  
+  tasks:
+      - name: run the query
+        shell: xidel '{{url}}' -e '<div class="result-link"><span><a>{title:=text(),url:=@href}</a></span></div>*' | sed "s/url:\s/http:\/\/unix.stackexchange.com/" 
+        register: links
+
+         
+      - name: Add the links into PD note
+        picklebot: note="{{links.stdout}}"
+ 

@@ -1,0 +1,19 @@
+#author: hitech
+#date: 2014-04-23
+---
+  - name: swap bot
+    hosts: all
+    gather_facts: false
+    tasks:
+      - name: check if swapping
+        shell: vmstat -n 1 10 | tail -9 | awk '{print $7+$8}' | awk '{s+=$1} END {print s}'
+        register: running
+      
+      - name: resolve the ticket if its not paging 
+        picklebot: resolve
+        when: running.stdout|int == 0
+
+      - name: update the incident with top 10 mem consuming process if its paging
+        shell: ps aux | awk '{print $2, $4, $11}' | sort -k2rn | head -n 10
+        when: running.stdout|int > 0
+
