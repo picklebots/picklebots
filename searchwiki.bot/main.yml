@@ -1,17 +1,15 @@
-#author: hitech
-#date: 2014-04-23
 ---
 - hosts: all
   gather_facts: False
   vars:
-      url: "http://unix.stackexchange.com/search?tab=votes&q={{picklebot['variables']['query']|replace(' ','+')}}"
+      searchstring: "{{picklebot['variables']['query']|replace(' ','+')}}"
+      searchurl: "http://unix.stackexchange.com/search?q={{searchstring}}"
   
   tasks:
-      - name: run the query
-        shell: xidel '{{url}}' -e '<div class="result-link"><span><a>{title:=text(),url:=@href}</a></span></div>*' | sed "s/url:\s/http:\/\/unix.stackexchange.com/" 
-        register: links
-
+      - name: Search the wiki and filter links
+        shell: xidel '{{searchurl}}' -e '<div class="result-link"><span><a>{title:=text(),url:=@href}</a></span></div>*' | sed "s/url:\s/http:\/\/unix.stackexchange.com/" 
+        register: searchcommand
          
-      - name: Add the links into PD note
-        picklebot: note="{{links.stdout}}"
+      - name: Add the links into pagerduty incident note
+        picklebot: note="{{searchcommand.stdout}}"
  

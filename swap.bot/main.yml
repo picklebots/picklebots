@@ -1,0 +1,16 @@
+---
+  - hosts: all
+    gather_facts: false
+    tasks:
+      - name: determine swapping
+        shell: vmstat -n 1 10 | tail -9 | awk '{print $7+$8}' | awk '{s+=$1} END {print s}'
+        register: running
+
+      - name: list top 10 memory consuming process if its actively swapping
+        shell: ps aux | awk '{print $2, $4, $11}' | sort -k2rn | head -n 10
+        when: running.stdout|int > 0
+
+      - name: resolve the incident if its not actively swapping 
+        picklebot: resolve
+        when: running.stdout|int == 0
+
