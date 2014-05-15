@@ -2,7 +2,7 @@ searchwiki.bot
 ==========
 
 ### Scenario
-Search for the incident description in the internal company wiki and add results (if found) to the incident notes
+Search for the incident description in the internal company wiki and add results to the incident notes
 
 ### Actions performed by this picklebot
 1. Extracts required details from the pagerduty incident that's triggered
