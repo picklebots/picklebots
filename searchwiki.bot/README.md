@@ -1,6 +1,8 @@
 searchwiki.bot
 ==========
 
+Video: https://www.youtube.com/watch?v=RBeCoEcZvv0
+
 ### Scenario
 Search for the incident description in the internal company wiki and add results to the incident notes
 
