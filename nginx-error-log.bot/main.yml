@@ -1,0 +1,25 @@
+#author: hitech
+#date: 2014-05-18
+---
+- hosts: all
+  gather_facts: False
+  vars:
+      timestamp: '{{picklebot["variables"]["time_stamp"]|dateFormat("%d %b %Y %H:%M:%S","%Y\\/%m\\/%d %H")}}'
+      valid_roots:
+          - public
+          - webpickle
+          - jar
+            #- muiecatd
+
+  
+  tasks:
+  - name: get the root of the request
+    shell: sed -n -e  '/{{timestamp}}/,$p' /var/log/nginx/error.log | awk -F \" '{print $4}' | awk '{print $2}' | awk -F / '{print $2}'
+    register: req_roots
+    when: picklebot["variables"]["state"] == "failed"
+
+  - name: check if errored roots are valid ones
+    picklebot: resolve
+    when: picklebot["variables"]["state"] == "succeeded"  or valid_roots|intersect(req_roots.stdout_lines)|count == 0 
+
+
