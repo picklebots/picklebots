@@ -5,21 +5,20 @@
   gather_facts: False
   vars:
       timestamp: '{{picklebot["variables"]["time_stamp"]|dateFormat("%d %b %Y %H:%M:%S","%Y\\/%m\\/%d %H")}}'
-      valid_roots:
+      valid_urls:
           - public
           - webpickle
           - jar
-            #- muiecatd
 
   
   tasks:
-  - name: get the root of the request
+  - name: get the base url of the request
     shell: sed -n -e  '/{{timestamp}}/,$p' /var/log/nginx/error.log | awk -F \" '{print $4}' | awk '{print $2}' | awk -F / '{print $2}'
-    register: req_roots
+    register: req_urls
     when: picklebot["variables"]["state"] == "failed"
 
   - name: check if errored roots are valid ones
     picklebot: resolve
-    when: picklebot["variables"]["state"] == "succeeded"  or valid_roots|intersect(req_roots.stdout_lines)|count == 0 
+    when: picklebot["variables"]["state"] == "succeeded"  or valid_urls|intersect(req_urls.stdout_lines)|count == 0 
 
 
