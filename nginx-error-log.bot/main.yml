@@ -1,5 +1,3 @@
-#author: hitech
-#date: 2014-05-18
 ---
 - hosts: all
   gather_facts: False
