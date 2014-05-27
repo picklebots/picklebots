@@ -3,7 +3,7 @@ searchwiki.bot
 
 
 ### Scenario
-When an incident gets triggered, search in the internal company wiki using keywords from the incident description and annotate incident with search results
+When an incident gets triggered, do a search in the internal company wiki using keywords from the incident description and annotate incident with search results
 
 Video: https://www.youtube.com/watch?v=RBeCoEcZvv0
 
