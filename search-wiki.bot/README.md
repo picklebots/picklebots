@@ -1,4 +1,4 @@
-search-wiki.bot
+search-wiki
 ==========
 
 
