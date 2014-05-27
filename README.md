@@ -3,7 +3,7 @@ picklebots
 
 Ready-made picklebots to automate your pagerduty incidents using http://pickle.io
 
-* [searchwiki](https://github.com/pickleio/picklebots/tree/master/searchwiki.bot)
+* [search-wiki](https://github.com/pickleio/picklebots/tree/master/search-wiki.bot)
 * [swap](https://github.com/pickleio/picklebots/tree/master/swap.bot)
 * [nginx-error-log](https://github.com/pickleio/picklebots/tree/master/nginx-error-log.bot)
 
