@@ -6,7 +6,7 @@ When we have [monit](https://mmonit.com/monit) to watch the ngnix error log file
 
 ```
 Monit Timestamp failed alert nginx_error at Thu, 22 May 2014 07:35:17 on server1,
-                Description: timestamp test failed for /var/log/nginx/error.log
+Description: timestamp test failed for /var/log/nginx/error.log
 ```
 
 ### Actions performed by this picklebot
