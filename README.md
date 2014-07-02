@@ -1,7 +1,16 @@
 picklebots
 ==========
 
-Ready-made picklebots to automate your pagerduty incidents using http://pickle.io
+Ready-made picklebots for http://pickle.io
+
+
+**gathering diagnostic info**
+
+* topmem - get top 10 memory consuming process
+* topdisk - get top 10 disk consuming directories and files
+
+
+**automating pagerduty incidents**
 
 * [searchwiki](https://github.com/pickleio/picklebots/tree/master/searchwiki)
 * [swap](https://github.com/pickleio/picklebots/tree/master/swap)
