@@ -1,4 +1,4 @@
-nginx-error-log.bot
+nginx-error-log
 ==========
 
 ### Scenario
