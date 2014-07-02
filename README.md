@@ -6,8 +6,8 @@ Ready-made picklebots for http://pickle.io
 
 **gathering diagnostic info**
 
-* topmem - get top 10 memory consuming process
-* topdisk - get top 10 disk consuming directories and files
+* [topmem](https://github.com/pickleio/picklebots/blob/master/topmem.sh) - get top 10 memory consuming process
+* [topdisk](https://github.com/pickleio/picklebots/blob/master/topdisk.sh) - get top 10 disk consuming directories and files
 
 
 **automating pagerduty incidents**
