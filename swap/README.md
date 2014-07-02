@@ -1,4 +1,4 @@
-swap.bot
+swap
 ==========
 
 ### Scenario
