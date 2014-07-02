@@ -2,7 +2,7 @@
 - hosts: all
   gather_facts: False
   vars:
-      searchstring: "{{picklebot['variables']['query']|replace(' ','+')}}"
+      searchstring: "{{arguments['query']|replace(' ','+')}}"
       searchurl: "http://unix.stackexchange.com/search?q={{searchstring}}"
   
   tasks:

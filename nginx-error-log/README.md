@@ -11,5 +11,5 @@ Description: timestamp test failed for /var/log/nginx/error.log
 
 ### Actions performed by this picklebot
 1. Read the log file and gather the urls which resulted in error based on the alert timestamp.
-2. If the errored out urls are relevant to the application, then escalate it log contents starting from the timestamp. Otherwise resolve the incident. 
-3. It also ignores the subsequent success alert (when there is no more change in error log for few minutes), since it's not relevant in this case.
+2. If the errored out urls are relevant to the application, then escalate the incident along with log contents.
+3. Otherwise, the errors are due to attempts by script kiddies. So resolve the incident. 

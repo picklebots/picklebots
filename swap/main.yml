@@ -7,7 +7,7 @@
         register: running
 
       - name: list top 10 memory consuming process if its actively swapping
-        shell: ps aux | awk '{print $2, $4, $11}' | sort -k2rn | head -n 10
+        shell: ps aux | awk '{print $4, $11, $2}' | sort -k1rn | head -n 10
         when: running.stdout|int > 0
 
       - name: resolve the incident if its not actively swapping 
