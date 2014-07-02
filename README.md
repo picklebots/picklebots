@@ -1,8 +1,6 @@
 picklebots
 ==========
 
-Ready-made picklebots for http://pickle.io
-
 
 **gathering diagnostic info**
 
